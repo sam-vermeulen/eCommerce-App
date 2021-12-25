@@ -4,9 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "start": "nodemon backend/server",
-    "dev": "SET NODE_ENV=DEVELOPMENT& nodemon backend/server",
-    "prod": "SET NODE_ENV=PRODUCTION& nodemon backend/server",
+    "start": "nodemon backend/server.js",
+    "client": "npm start --prefix frontend",
+    "dev": "SET NODE_ENV=DEVELOPMENT& concurrently \"npm start\" \"npm run client\"",
+    "prod": "SET NODE_ENV=PRODUCTION& concurrently \"npm start\" \"npm run client\"",
     "seeder": "node backend/utils/seeder.js"
   },
   "author": "Sam",

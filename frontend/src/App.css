@@ -8,6 +8,15 @@ body {
   overflow-x: hidden;
 }
 
+.brand {
+  color: white;
+  text-decoration: none;
+}
+
+.brand:hover {
+  color: white;
+}
+
 /* Scroll Bar */
 
 ::-webkit-scrollbar-track {
