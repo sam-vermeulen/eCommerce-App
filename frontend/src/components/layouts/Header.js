@@ -40,7 +40,7 @@ const Header = () => {
                     </Link>
 
                     { user ? (
-                        <div className='dropdown'>
+                        <div className='dropdown ml-4'>
                             <Link to="#" className="btn dropdown-toggle text-white" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" >
                                 <span>{ user && user.name}</span>
                             </Link>
@@ -48,8 +48,6 @@ const Header = () => {
                             <div className="dropdown-menu" aria-labelledby="dropdownMenuButton">
 
                                 <Link className='dropdown-item' to='/orders'>Orders</Link>
-                                <Link className='dropdown-item' to='/myprofile'>Profile</Link>
-
                                 <Link className="dropdown-item text-danger" to="/" onClick={ logoutHandler }>
                                     Logout
                                 </Link>

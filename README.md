@@ -15,3 +15,12 @@ A simple eCommerce app built using the MERN stack with React-redux for stateful 
 - Frontend built using react
 - JWT authentication
 - React-Redux store to keep track of user and cart
+
+## TODO
+
+- Create frontend for the users profile
+    - update name, email
+    - change password
+    - reset password
+
+- Frontend components for password forgot and reset
