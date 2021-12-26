@@ -3,25 +3,24 @@ import Pagination from 'react-js-pagination'
 import Slider from 'rc-slider';
 import 'rc-slider/assets/index.css';
 
-import { useDispatch, useSelector } from 'react-redux'
 import { getProducts } from '../actions/productActions'
 
+import { useDispatch, useSelector } from 'react-redux'
 import { useAlert } from 'react-alert'
 
 import MetaData from './layouts/MetaData'
-import Product from './product/Product'
 import Loader from './layouts/Loader'
+import Product from './product/Product'
 import { useParams } from 'react-router-dom'
 
 const { createSliderWithTooltip } = Slider;
 const Range = createSliderWithTooltip(Slider.Range);
 
 const Home = () => {
-
-    const [currentPage, setCurrentPage] = useState(1);
     const [price, setPrice] = useState([1, 1000]);
     const [tempPrice, setTempPrice] = useState([1, 1000]);
     const [category, setCategory] = useState('All');
+    const [currentPage, setCurrentPage] = useState(1);
 
     const categories = [
         'All', 'Electronics', 'Cameras', 'Laptops', 'Accessories', 'Headphones', 'Food', 'Books', 'Clothes/Shoes', 'Beauty/Health', 'Sports', 'Outdoors', 'Home'
@@ -34,7 +33,6 @@ const Home = () => {
     const { loading, products, productsCount, error, itemsPerPage, filteredProductsCount } = useSelector(state => state.products);
 
     const keyword = params.keyword;
-    const page = params.page;
 
     useEffect(() => {
 
@@ -74,6 +72,7 @@ const Home = () => {
                                             allowCross={false}
                                         ></Range>
                                     </div>
+                                    
                                     <h5 className='mt-5'>Category</h5>
 
                                     <div className='form-check'>
@@ -120,4 +119,4 @@ const Home = () => {
     )
 }
 
-export default Home
+export default Home;

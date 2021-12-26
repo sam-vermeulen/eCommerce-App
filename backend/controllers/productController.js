@@ -19,7 +19,7 @@ exports.getProductById = catchAsyncErrors(async (req, res, next) => {
 
 // Get all products - GET /api/products?keyword=apple
 exports.getProducts = catchAsyncErrors(async (req, res, next) => {
-    const itemsPerPage = 1;
+    const itemsPerPage = 6;
     const productsCount = await Product.countDocuments();
 
     const apiFeatures = new APIFeatures(Product.find(), req.query)

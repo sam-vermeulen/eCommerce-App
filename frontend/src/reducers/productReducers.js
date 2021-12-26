@@ -3,7 +3,7 @@ import { ALL_PRODUCTS_REQUEST, ALL_PRODUCTS_SUCCESS,
          PRODUCT_FAIL, PRODUCT_REQUEST,
          ERRORS_CLEAR } from "../constants/productConstants";
 
-export const productsReducer = (state = { products: [] }, action) => {
+export const productsReducer = (state = { products: [], currentPage: 1 }, action) => {
     switch (action.type) {
         case ALL_PRODUCTS_REQUEST:
             return {
@@ -17,7 +17,8 @@ export const productsReducer = (state = { products: [] }, action) => {
                 products: action.payload.products,
                 productsCount: action.payload.productsCount,
                 itemsPerPage: action.payload.itemsPerPage,
-                filteredProductsCount: action.payload.filteredProductsCount
+                filteredProductsCount: action.payload.filteredProductsCount,
+                currentPage: action.payload.currentPage
             };
 
         case ALL_PRODUCTS_FAIL:
