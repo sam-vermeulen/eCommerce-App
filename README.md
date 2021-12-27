@@ -8,9 +8,9 @@ Test card information for Stripe API:
 
 Number: 4242 4242 4242 4242
 
-Card expiry: 02/42
+Expiry: 02/42
 
-Card cvc: 424
+CVC: 424
 
 ## Features
 
