@@ -6,9 +6,11 @@ Live Site is available at: https://ecommerce-app-samjv.herokuapp.com/
 
 Test card information for Stripe API:
 
-number: 4242 4242 4242 4242
-card expiry: 02/42
-card cvc: 424
+Number: 4242 4242 4242 4242
+
+Card expiry: 02/42
+
+Card cvc: 424
 
 ## Features
 
