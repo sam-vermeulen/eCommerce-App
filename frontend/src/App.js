@@ -1,7 +1,5 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
-
-import axios from 'axios';
 
 import Header from './components/layouts/Header';
 import Footer from './components/layouts/Footer';
@@ -12,11 +10,18 @@ import Register from './components/user/Register';
 import Cart from './components/cart/Cart';
 import Shipping from './components/cart/Shipping';
 import ConfirmOrder from './components/cart/ConfirmOrder';
+import ViewOrders from './components/order/ViewOrders';
 import Payment from './components/cart/Payment';
+import OrderSuccess from './components/cart/OrderSuccess';
+import ProtectRoute from './components/ProtectRoute';
+import store from './store';
+import { loadUser } from './actions/userActions';
+import OrderById from './components/order/OrderById';
 
 function App() {
 
     useEffect(() => {
+        store.dispatch(loadUser());
     }, []);
 
     return (
@@ -32,9 +37,34 @@ function App() {
                             <Route path="/register" element={<Register />} />
 
                             <Route path="/cart" element={<Cart />} />
-                            <Route path="/shipping" element={<Shipping />} />
-                            <Route path="/confirm" element={<ConfirmOrder />} />
-                            <Route path="/payment" element={<Payment />} />
+
+                            <Route path="/shipping" element={
+                                <ProtectRoute redirectTo="/login">
+                                    <Shipping />
+                                </ProtectRoute>
+                            } />
+
+                            <Route path="/orders" element={ <ViewOrders /> } />
+
+                            <Route path="/confirm" element={
+                                <ProtectRoute redirectTo="/login">
+                                    <ConfirmOrder />
+                                </ProtectRoute>
+                            } />
+
+                            <Route path="/success" element={
+                                <ProtectRoute redirectTo="/login">
+                                    <OrderSuccess />
+                                </ProtectRoute>
+                            } />
+
+                            <Route path="/payment" element={
+                                <ProtectRoute redirectTo="/login">
+                                    <Payment />
+                                </ProtectRoute>
+                            } />
+
+                            <Route path="/order/:id" element={<OrderById />} />
                         </Routes>
                     </div>
                 <Footer />

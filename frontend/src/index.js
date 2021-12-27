@@ -23,8 +23,6 @@ const options = {
     const stripeApiKey = (await axios.get('/api/stripe')).data.stripeApiKey;
     const stripePromise = loadStripe(stripeApiKey);
 
-    console.log(stripeApiKey);
-
     ReactDOM.render(
         <Provider store={store}>
             <AlertProvider template={AlertTemplate} {...options}>

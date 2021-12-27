@@ -39,7 +39,8 @@ nav {
 }
 
 #login_btn,
-#view_btn {
+#view_btn,
+#orders_btn {
   background-color: #febd69;
   padding: 0.4rem 1.8rem;
   margin: 0.5rem;

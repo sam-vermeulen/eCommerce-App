@@ -8,8 +8,8 @@ const { isUserAuthenticated, authorizeRoles } = require('../middlewares/auth');
 
 router.route('/order/new').post(isUserAuthenticated, newOrder);
 router.route('/orders/me').get(isUserAuthenticated, getUserOrders);
+router.route('/order/:id').get(isUserAuthenticated, getOrderById);
 
-router.route('/admin/order/:id').get(isUserAuthenticated, authorizeRoles('admin'), getOrderById);
 router.route('/admin/orders/all').get(isUserAuthenticated, authorizeRoles('admin'), getAllOrders);
 router.route('/admin/order/:id')
         .put(isUserAuthenticated, authorizeRoles('admin'), processOrder)

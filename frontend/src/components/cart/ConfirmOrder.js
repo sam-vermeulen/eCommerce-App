@@ -83,7 +83,7 @@ const ConfirmOrder = () => {
                             <hr />
                             <p>Subtotal:  <span className="order-summary-values">${itemsPrice.toFixed(2)}</span></p>
                             <p>Shipping: <span className="order-summary-values">${shippingPrice.toFixed(2)}</span></p>
-                            <p>Tax (13% subtotal):  <span className="order-summary-values">${taxPrice.toFixed(2)}</span></p>
+                            <p>Tax (13%):  <span className="order-summary-values">${taxPrice.toFixed(2)}</span></p>
 
                             <hr />
 

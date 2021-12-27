@@ -51,4 +51,4 @@ export const clearErrors = () => async (dispatch) => {
     dispatch({
         type: ERRORS_CLEAR
     });
-}
+};

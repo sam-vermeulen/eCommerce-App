@@ -26,7 +26,7 @@ const Login = () => {
     useEffect(() => {
         
         if (isAuthenticated) {
-            navigate(`../${redirect}`);
+            navigate(`../${redirect}`, { replace: true });
         }
 
         if (error) {
@@ -34,7 +34,7 @@ const Login = () => {
             dispatch(clearErrors());
         }
         
-    }, [dispatch, alert, isAuthenticated, error, navigate])
+    }, [dispatch, alert, isAuthenticated, error, navigate, redirect])
 
 
     const submitHandler = (e) => {

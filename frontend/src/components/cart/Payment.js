@@ -9,8 +9,9 @@ import CheckoutSteps from './CheckoutSteps';
 
 import { useStripe, useElements, CardNumberElement, CardExpiryElement, CardCvcElement } from '@stripe/react-stripe-js';
 
+import { createOrder, clearErrors } from '../../actions/orderActions';
+
 import axios from 'axios';
-import { clearErrors } from '../../actions/userActions';
 
 const options = {
     style: {
@@ -32,12 +33,31 @@ const Payment = () => {
 
     const { user } = useSelector(state => state.user);
     const { cartItems, shippingInfo } = useSelector(state => state.cart);
+    const { error } = useSelector(state => state.order);
 
     useEffect(() => {
+
+        if (error) {
+            alert.error(error);
+            dispatch(clearErrors(error));
+        }
         
-    }, [])
+    }, [dispatch, alert, error]);
+
+    const order = {
+        orderItems: cartItems,
+        shippingInfo
+    };
 
     const orderInfo = JSON.parse(sessionStorage.getItem('orderInfo'));
+
+    if (orderInfo) {
+        order.itemsPrice = orderInfo.itemsPrice;
+        order.shippingPrice = orderInfo.shippingPrice;
+        order.taxPrice = orderInfo.taxPrice;
+        order.totalPrice = orderInfo.totalPrice;
+    }
+
     const paymentData = {
         amount: Math.round(orderInfo.totalPrice * 100)
     }
@@ -78,13 +98,24 @@ const Payment = () => {
             if (result.error) {
                 // error paying
                 alert.error(result.error.message);
+                console.log(result.error.message);
+                document.querySelector('#pay_btn').disabled = false;
             } else {
                 if (result.paymentIntent.status === 'succeeded') {
                     // pay success
-                    navigate('/success');
+
+                    order.paymentInfo = {
+                        id: result.paymentIntent.id,
+                        status: result.paymentIntent.status
+                    };
+
+                    dispatch(createOrder(order));
+
+                    navigate('/success', { order });
                 } else {
                     // failed to pay
                     alert.error('An error occurred while processing payment');
+                    document.querySelector('#pay_btn').disabled = false;
                 }
             }
 

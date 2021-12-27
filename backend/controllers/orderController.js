@@ -29,6 +29,10 @@ exports.newOrder = catchAsyncErrors(async (req, res, next) => {
         user: req.user._id
     });
 
+    if (!order) {
+        return next(new ErrorHandler(`Failed to create order`, 400));
+    }
+
     res.status(200).json({
         success: true,
         order
@@ -43,20 +47,13 @@ exports.getOrderById = catchAsyncErrors(async (req, res, next) => {
         return next(new ErrorHandler(`No order found with id: ${req.params.id}`, 404));
     }
 
-    res.status(200).json({
-        success: true,
-        order
-    });
+    res.status(200).json(order);
 });
 
 // Get logged in user orders - GET /api/orders/me
 exports.getUserOrders = catchAsyncErrors(async (req, res, next) => {
-    const order = await Order.find({ user: req.user.id });
-
-    res.status(200).json({
-        success: true,
-        order
-    });
+    const orders = await Order.find({ user: req.user.id });
+    res.status(200).json(orders);
 });
 
 // Get all orders - GET api/admin/orders/all

@@ -35,7 +35,7 @@ export const login = (email, password) => async (dispatch) => {
             payload: error.response.data.error.message
         });
     }
-}
+};
 
 // register
 export const register = (user) => async (dispatch) => {
@@ -58,7 +58,7 @@ export const register = (user) => async (dispatch) => {
             payload: error.response.data.error.message
         });
     }
-}
+};
 
 // load user
 export const loadUser = () => async (dispatch) => {
@@ -75,7 +75,7 @@ export const loadUser = () => async (dispatch) => {
             payload: error.response.data.message
         });
     }
-}
+};
 
 // logout
 export const logout = () => async (dispatch) => {
@@ -89,9 +89,9 @@ export const logout = () => async (dispatch) => {
             payload: error.response.data.message
         });
     }
-}
+};
 
 
 export const clearErrors = () => async (dispatch) => {
     dispatch({ type: ERRORS_CLEAR });
-}
+};

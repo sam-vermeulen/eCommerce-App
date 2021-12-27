@@ -5,12 +5,16 @@ import { composeWithDevTools } from 'redux-devtools-extension';
 import { productsReducer, productDetailsReducer } from './reducers/productReducers';
 import { authReducer } from './reducers/userReducers';
 import { cartReducer } from './reducers/cartReducers';
+import { orderReducer, getOrdersReducer, getOrderByIdReducer } from './reducers/orderReducers';
 
 const reducer = combineReducers({
     products: productsReducer,
     productDetails: productDetailsReducer,
     user: authReducer,
-    cart: cartReducer
+    cart: cartReducer,
+    order: orderReducer,
+    myOrders: getOrdersReducer,
+    orderById: getOrderByIdReducer
 });
 
 let initialState = {
