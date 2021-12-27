@@ -15,7 +15,7 @@ dotenv.config({ path: './backend/config/config.env' });
 // Connect to db
 connectDatabase();
 
-const PORT = process.env.PORT | 5000;
+const PORT = process.env.PORT || 5000;
 const server = app.listen(PORT, () => {
     console.log(`Listening on port ${PORT} (${process.env.NODE_ENV})`);
 });
