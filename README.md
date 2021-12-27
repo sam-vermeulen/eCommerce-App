@@ -16,6 +16,7 @@ A simple eCommerce app built using the MERN stack with React-redux for stateful 
 - JWT authentication
 - React-Redux for a stateful front end
 - Used local storage to save cart information
+- Payment with stripe API
 
 ## TODO
 
