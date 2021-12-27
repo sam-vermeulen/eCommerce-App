@@ -14,7 +14,8 @@ A simple eCommerce app built using the MERN stack with React-redux for stateful 
     - Admin routes for updating, deleting, and viewing users and orders
 - Frontend built using react
 - JWT authentication
-- React-Redux store to keep track of user and cart
+- React-Redux for a stateful front end
+- Used local storage to save cart information
 
 ## TODO
 

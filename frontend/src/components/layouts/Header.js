@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react'
+import React from 'react'
 import { Link } from 'react-router-dom';
 
 import { useDispatch, useSelector } from 'react-redux';
@@ -14,6 +14,7 @@ const Header = () => {
     const dispatch = useDispatch();
 
     const { user, loading } = useSelector(state => state.user);
+    const { cartItems } = useSelector(state => state.cart);
 
     const logoutHandler = () => {
         dispatch(logout());
@@ -36,7 +37,7 @@ const Header = () => {
                 <div className="col-12 col-md-3 mt-4 pt-2 mt-md-0 text-center">
                     <Link to="/cart" style={{ textDecoration: 'none' }}>
                         <span id="cart" className="ml-3 mr-3">Cart</span>
-                        <span className="ml-1" id="cart_count">2</span>
+                        <span className="ml-1" id="cart_count">{ cartItems.length }</span>
                     </Link>
 
                     { user ? (

@@ -11,7 +11,7 @@ const Product = ({ product , col }) => {
                     <Link to={`/products/${product._id}`}>{product.name}</Link>
                 </h5>
                 <div className="mt-auto">
-                    <p className="card-text">${product.price}</p>
+                    <p className="card-text">${product.price.toFixed(2)}</p>
                 </div>
                 <Link to={`/products/${product._id}`} id="view_btn" className="btn btn-block">View Details</Link>
                 </div>
