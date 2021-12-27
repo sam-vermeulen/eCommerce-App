@@ -72,7 +72,7 @@ const ProductDetails = (path) => {
             
                             <hr />
             
-                            <p id="product_price">${product.price.toFixed(2)}</p>
+                            <p id="product_price">${Number(product.price).toFixed(2)}</p>
                             <div className="stockCounter d-inline">
                                 <span className="btn btn-danger minus" onClick={decreaseQuantity}>-</span>
             

@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { Link, useNavigate, useLocation } from 'react-router-dom'
 
 import { useDispatch, useSelector } from 'react-redux'
 import { useAlert } from 'react-alert'
@@ -17,13 +17,16 @@ const Login = () => {
     const alert = useAlert();
     const dispatch = useDispatch();
     const navigate = useNavigate();
+    const location = useLocation();
 
     const { isAuthenticated, error, loading } = useSelector(state => state.user);
+
+    const redirect = location.search ? location.search.split('=')[1] : ''
 
     useEffect(() => {
         
         if (isAuthenticated) {
-            navigate(`/`);
+            navigate(`../${redirect}`);
         }
 
         if (error) {

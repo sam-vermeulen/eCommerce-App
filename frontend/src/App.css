@@ -358,6 +358,7 @@ footer {
   border-left: 15px solid #fa9c23;
   border-bottom: 20px solid transparent;
   margin-left: -1px;
+  cursor: default;
 }
 
 .triangle2-active {
@@ -367,6 +368,7 @@ footer {
   border-left: 15px solid #fff;
   border-bottom: 20px solid #fa9c23;
   margin-right: -1px;
+  cursor: default;
 }
 
 .triangle-incomplete {
@@ -376,6 +378,7 @@ footer {
   border-left: 15px solid #eeeeee;
   border-bottom: 20px solid transparent;
   margin-left: -1px;
+  cursor: default;
 }
 
 .triangle2-incomplete {
@@ -385,6 +388,7 @@ footer {
   border-left: 15px solid #fff;
   border-bottom: 20px solid #eeeeee;
   margin-right: -1px;
+  cursor: default;
 }
 
 /* Confirm Order */
