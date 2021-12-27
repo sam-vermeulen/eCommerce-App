@@ -2,6 +2,14 @@
 
 A simple eCommerce app built using the MERN stack with React-redux for stateful frontend.
 
+Live Site is available at: https://ecommerce-app-samjv.herokuapp.com/
+
+Test card information for Stripe API:
+
+number: 4242 4242 4242 4242
+card expiry: 02/42
+card cvc: 424
+
 ## Features
 
 - Backend end points for
