@@ -36,3 +36,5 @@ CVC: 424
     - reset password
 
 - Frontend components for password forgot and reset
+
+- Aesthetic improvements to the frontend
